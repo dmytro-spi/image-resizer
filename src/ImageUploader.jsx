@@ -35,11 +35,11 @@ const ImageUploader = () => {
             const a = document.createElement('a');
             a.href = url;
             // Add a prefix and use the original file name
-            a.download = `processed_${file.name}`;
+            a.download = `processed_${file.name.split('.').slice(0, -1).join('.')}.jpg`;
             document.body.appendChild(a);
             a.click();
             a.remove();
-          }, 'image/png');
+          }, 'image/jpeg', 0.75);
         };
       };
 
